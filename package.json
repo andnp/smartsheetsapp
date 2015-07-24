@@ -1,0 +1,12 @@
+{
+  "name": "Smartsheets",
+  "version": "0.0.0",
+  "description": "A bot for Smartsheets",
+  "dependencies": {
+    "express": "^4.13.1",
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.59.0"
+  }
+}
