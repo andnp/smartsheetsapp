@@ -28,6 +28,19 @@ module.exports = {
 				}
 			});
 		});
+	},
+
+	getWorkspaceIdByName: function(workspaceName, onComplete){
+		smartsheetapi.getWorkspaces(function(workspaces){
+			var id;
+			workspaces.forEach(function(workspace){
+				if(workspace.name === workspaceName){
+					id = workspace.id;
+					onComplete(id);
+				}
+			});
+		});
 	}
+
 
 };
