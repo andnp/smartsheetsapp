@@ -1,2 +1,5 @@
 accesskeys.json
 node_modules/
+*~
+*#
+*.sublime*
