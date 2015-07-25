@@ -9,7 +9,7 @@ module.exports = {
 				if(sheet.name === sheetName){
 					id = sheet.id;
 					smartsheetapi.getSheet(id, function(sheetData){
-						console.log(sheetData);
+						onComplete(sheetData);
 					});
 				}
 			});
@@ -23,7 +23,7 @@ module.exports = {
 				if(sheet.name === sheetName){
 					id = sheet.id;
 					smartsheetapi.getColumns(id, function(columnData){
-						console.log(columnData);
+						onComplete(columnData);
 					});
 				}
 			});
