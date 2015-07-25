@@ -41,6 +41,7 @@ module.exports = {
 			});
 		});
 	},
+
 	getTemplateIdByName: function(templateName, onComplete){
 		smartsheetapi.getTemplates(function(templates){
 			var id;
@@ -51,8 +52,20 @@ module.exports = {
 				}
 			});
 		});
+	},
+
+	getWorkspaceByName: function(workspaceName, onComplete){
+		smartsheetapi.getWorkspaces(function(workspaces){
+			var id;
+			workspaces.forEach(function(workspace){
+				if(workspace.name === workspaceName){
+					id = workspace.id;
+					smartsheetapi.getWorkspace(id, function(workspaceData){
+						onComplete(workspaceData);
+					});
+				}
+			});
+		});
 	}
-
-
 
 };
