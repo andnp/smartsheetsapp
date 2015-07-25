@@ -40,7 +40,19 @@ module.exports = {
 				}
 			});
 		});
+	},
+	getTemplateIdByName: function(templateName, onComplete){
+		smartsheetapi.getTemplates(function(templates){
+			var id;
+			templates.forEach(function(template){
+				if(template.name === templateName){
+					id = template.id;
+					onComplete(id);
+				}
+			});
+		});
 	}
+
 
 
 };
