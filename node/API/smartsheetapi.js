@@ -56,5 +56,19 @@ module.exports = {
 				onComplete(JSON.parse(body));
 			});
 		});
-	}
+	},
+	getWorkspaces: function(onComplete){
+		fs.readFile('accesskeys.json', 'utf8', function(err,data){
+			var ACCESS_TOKEN = JSON.parse(data).smartsheet.accesstoken;
+			var options = {
+				url: SMARTSHEET_URL + '/workspaces',
+				headers:{
+					'Authorization' : 'Bearer ' + ACCESS_TOKEN
+				}
+			};
+			request(options, function(error, response, body){
+				onComplete(JSON.parse(body).data);
+			});
+		});
+	},
 };
