@@ -72,11 +72,31 @@ var getSheetRows = function(sheetName, onComplete){
 	});
 };
 
+var getSheet = function(sheetId, onComplete){
+	smartsheetapi.getSheet(sheetId, onComplete);
+};
+
+var getCellData = function(sheetId, rowId, columnId, onComplete){
+	smartsheetapi.getSheet(sheetId, function(sheetData){
+		sheetData.rows.forEach(function(row){
+			if(row.id === rowId){
+				row.cells.forEach(function(cell){
+					if(cell.columnId === columnId){
+						onComplete(cell);
+					}
+				});
+			}
+		});
+	});
+};
+
 module.exports = {
 	getSheetByName: getSheetByName,
 	getSheetColumns: getSheetColumns,
 	getWorkspaceIdByName: getWorkspaceIdByName,
 	getTemplateIdByName: getTemplateIdByName,
 	getWorkspaceByName: getWorkspaceByName,
-	getSheetRows: getSheetRows
+	getSheetRows: getSheetRows,
+	getSheet: getSheet,
+	getCellData: getCellData
 };

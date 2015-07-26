@@ -101,7 +101,7 @@ var getTemplates = function(onComplete){
 	});
 };
 
-var getWorkspace = ,function(workspaceId, onComplete){
+var getWorkspace = function(workspaceId, onComplete){
 	fs.readFile('accesskeys.json', 'utf8', function(err, data){
 		var ACCESS_TOKEN = JSON.parse(data).smartsheet.accesstoken;
 		var options = {
@@ -116,6 +116,21 @@ var getWorkspace = ,function(workspaceId, onComplete){
 	});
 };
 
+var getRow = function(sheetId, rowId, onComplete){
+	fs.readFile('accesskeys.json', 'utf8', function(err, data){
+		var ACCESS_TOKEN = JSON.parse(data).smartsheet.accesstoken;
+		var options = {
+			url: SMARTSHEET_URL + '/sheets/' + sheetId + '/rows/' + rowId,
+			headers:{
+				'Authorization' : 'Bearer ' + ACCESS_TOKEN
+			}
+		}; 
+		request(options, function(error, response, body){
+			onComplete(JSON.parse(body));
+		});
+	});
+}
+
 module.exports = {
 	getSheets: getSheets,
 	getSheet: getSheet,
@@ -123,5 +138,6 @@ module.exports = {
 	createSheetInWorkspaceFromTemplate: createSheetInWorkspaceFromTemplate,
 	getWorkspaces: getWorkspaces,
 	getTemplates: getTemplates,
-	getWorkspace: getWorkspace
+	getWorkspace: getWorkspace,
+	getRow: getRow
 };
