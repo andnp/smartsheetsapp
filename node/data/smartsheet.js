@@ -80,6 +80,7 @@ var createSheetInWorkspaceFromTemplate = function(workspaceName, templateName, s
 			});
 		});
 	});
+}
 
 var getSheet = function(sheetId, onComplete){
 	smartsheetapi.getSheet(sheetId, onComplete);

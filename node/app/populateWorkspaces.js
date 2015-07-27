@@ -14,9 +14,8 @@ var arrayIssueTrackers = [];
 
 var buildArraysComplete = function(){
 	arrayCompleteCount = arrayCompleteCount + 1;
-	console.log(arrayCompleteCount);
 	if (arrayCompleteCount === 3){
-		console.log("finding missing sheets");
+		console.log("Finding missing sheets");
 		var arrayMissingTimeLines;
 		var arrayMissingIssues;
 	
@@ -26,8 +25,8 @@ var buildArraysComplete = function(){
 		arrayMissingIssues = arrayProjectChecklists.filter(function(i) {
     		return arrayIssueTrackers.indexOf(i) < 0;
     	});
-    	console.log(arrayMissingTimeLines);
-    	console.log(arrayMissingIssues);
+    	if(arrayMissingTimeLines.length > 0) console.info(arrayMissingTimeLines);
+    	if(arrayMissingIssues.length > 0) console.info(arrayMissingIssues);
     	arrayMissingTimeLines.forEach(function(sheetName){
 	    	smartsheet.createSheetInWorkspaceFromTemplate("Project Timelines","14 Week",sheetName,function(){});
     	});
@@ -70,11 +69,7 @@ var populateWorkspaces = function(){
 }
 eventEmitter.on('buildArrayComplete', buildArraysComplete);
 
-setInterval(populateWorkspaces, 1 * 60 * 1000)
-
-
-// if either is missing a project name, create a sheet from template and give it the correct name
-// 
-// 
-// repeat every (?) 5 minutes (?)
+module.exports = {
+	run: populateWorkspaces
+}
 
