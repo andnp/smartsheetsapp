@@ -72,6 +72,15 @@ var getSheetRows = function(sheetName, onComplete){
 	});
 };
 
+var createSheetInWorkspaceFromTemplate = function(workspaceName, templateName, sheetName, onComplete){
+	getWorkspaceIdByName(workspaceName,function(workspaceID){
+		getTemplateIdByName(templateName,function(templateID){
+			smartsheetapi.createSheetInWorkspaceFromTemplate(workspaceID,sheetName,templateID,function(response){
+				onComplete(response.result.id);
+			});
+		});
+	});
+
 var getSheet = function(sheetId, onComplete){
 	smartsheetapi.getSheet(sheetId, onComplete);
 };
@@ -97,6 +106,7 @@ module.exports = {
 	getTemplateIdByName: getTemplateIdByName,
 	getWorkspaceByName: getWorkspaceByName,
 	getSheetRows: getSheetRows,
+	createSheetInWorkspaceFromTemplate: createSheetInWorkspaceFromTemplate,
 	getSheet: getSheet,
 	getCellData: getCellData
 };
