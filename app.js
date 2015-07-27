@@ -4,6 +4,8 @@ var smartsheetapi = require('./node/API/smartsheetapi');
 
 var app = express();
 
-smartsheetapi.getWorkspace("6090650006382468", function(workspaces){
-	console.log(workspaces);
-});
+//smartsheet.getWorkspaceByName("Project Checklists", function(workspaces){
+//	console.log(workspaces.sheets[0].name.split(":")[0]);
+//});
+
+[1,2,3,4,5,6].diff( [3,4,5] );

@@ -53,7 +53,7 @@ var createSheetInWorkspaceFromTemplate = function(workspaceId, sheetName, templa
 	fs.readFile('accesskeys.json', 'utf8', function(err, data){
 		var ACCESS_TOKEN = JSON.parse(data).smartsheet.accesstoken;
 		var options = {
-			url: SMARTSHEET_URL + '/workspaces/' + workspaceId + "/sheets/",
+			url: SMARTSHEET_URL + '/workspaces/' + workspaceId + "/sheets/?include=data,attachments,discussions,cellLinks,forms",
 			method: 'POST',
 			headers:{
 				'Authorization' : 'Bearer ' + ACCESS_TOKEN,
@@ -66,7 +66,9 @@ var createSheetInWorkspaceFromTemplate = function(workspaceId, sheetName, templa
 
 		}; 
 		request(options, function(error, response, body){
-			onComplete(JSON.parse(body));
+			console.log(error);
+			console.log(body);
+			//onComplete(JSON.parse(body));
 		});
 	});
 };
@@ -101,7 +103,7 @@ var getTemplates = function(onComplete){
 	});
 };
 
-var getWorkspace = ,function(workspaceId, onComplete){
+var getWorkspace = function(workspaceId, onComplete){
 	fs.readFile('accesskeys.json', 'utf8', function(err, data){
 		var ACCESS_TOKEN = JSON.parse(data).smartsheet.accesstoken;
 		var options = {
