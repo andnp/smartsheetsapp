@@ -51,7 +51,7 @@ var createSheetInWorkspaceFromTemplate = function(workspaceId, sheetName, templa
 
 		}; 
 		request(options, function(error, response, body){
-			onComplete(JSON.parse(body));
+			// onComplete(JSON.parse(body));
 		});
 	});
 };
