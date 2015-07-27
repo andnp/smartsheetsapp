@@ -80,10 +80,23 @@ var createSheetInWorkspaceFromTemplate = function(workspaceName, templateName, s
 			});
 		});
 	});
-	
 
-	
+var getSheet = function(sheetId, onComplete){
+	smartsheetapi.getSheet(sheetId, onComplete);
+};
 
+var getCellData = function(sheetId, rowId, columnId, onComplete){
+	smartsheetapi.getSheet(sheetId, function(sheetData){
+		sheetData.rows.forEach(function(row){
+			if(row.id === rowId){
+				row.cells.forEach(function(cell){
+					if(cell.columnId === columnId){
+						onComplete(cell);
+					}
+				});
+			}
+		});
+	});
 };
 
 module.exports = {
@@ -93,5 +106,7 @@ module.exports = {
 	getTemplateIdByName: getTemplateIdByName,
 	getWorkspaceByName: getWorkspaceByName,
 	getSheetRows: getSheetRows,
-	createSheetInWorkspaceFromTemplate: createSheetInWorkspaceFromTemplate
+	createSheetInWorkspaceFromTemplate: createSheetInWorkspaceFromTemplate,
+	getSheet: getSheet,
+	getCellData: getCellData
 };
