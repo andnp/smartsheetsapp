@@ -1,4 +1,4 @@
-var smartsheet = require('../data/smartsheet');
+var smartsheet = require('../API/smartsheetsapi/smartsheet');
 var fs = require('fs');
 
 var events = require('events');

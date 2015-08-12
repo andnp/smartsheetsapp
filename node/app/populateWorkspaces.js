@@ -1,4 +1,4 @@
-var smartsheet = require('../data/smartsheet');
+var smartsheet = require('../API/smartsheetsapi/smartsheet');
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
 

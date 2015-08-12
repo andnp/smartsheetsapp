@@ -1,8 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var smartsheet = require('./node/data/smartsheet');
-var trello = require('./node/data/trello');
+var smartsheet = require('./node/API/smartsheetsapi/smartsheet');
+var trello = require('./node/API/trelloapi/trello');
 var smartsheetapi = require('./node/API/smartsheetsapi/smartsheetapi');
 var trelloapi = require('./node/API/trelloapi/trelloapi');
 var populateWorkspaces = require('./node/app/populateWorkspaces');
