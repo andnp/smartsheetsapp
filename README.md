@@ -22,3 +22,7 @@ Finally, to run the application run:
 ```
 node app.js
 ```
+
+The repositories for the API libraries used in this application can be found at:
+* [Trello API](https://github.com/andnp/trelloapi)
+* [Smartsheets API](https://github.com/andnp/smartsheetsapi)
