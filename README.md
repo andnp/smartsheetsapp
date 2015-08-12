@@ -1,6 +1,6 @@
 This is a project meant to help develop ```NodeJs``` libraries for interacting with various public API's by building an automated workflow combining several services.
 
-To begin development of this project, run
+To begin development of this project, run:
 ```
 npm install
 ```
@@ -16,4 +16,9 @@ then create a file called ```accesskeys.json``` in the root directory that conta
 		"token": "mcnam2m1aza9djb9ax8ahqo1h9acbn19ac9an1b0ajkcnk19cbzbnm1v100askd9ah"
 	}
 }
+```
+
+Finally, to run the application run:
+```
+node app.js
 ```
