@@ -1,0 +1,6 @@
+[submodule "node/API/smartsheetsapi"]
+	path = node/API/smartsheetsapi
+	url = https://github.com/andnp/smartsheetsapi.git
+[submodule "node/API/trelloapi"]
+	path = node/API/trelloapi
+	url = https://github.com/andnp/trelloapi

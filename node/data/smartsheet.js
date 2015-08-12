@@ -1,4 +1,4 @@
-var smartsheetapi = require('../API/smartsheetapi');
+var smartsheetapi = require('../API/smartsheetsapi/smartsheetapi');
 
 var getSheetByName = function(sheetName, onComplete){
 	smartsheetapi.getSheets(function(sheets){
